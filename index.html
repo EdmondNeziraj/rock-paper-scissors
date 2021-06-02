@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function computerPlay() {
+            // get a random number
+            let num = Math.floor(Math.random() * 100);
+
+            // check that number if it is divisible by 3
+            // return one of the three options 
+            if (num % 3 == 0) {
+                return "Rock";
+            } 
+            else if (num % 3 == 1) {
+                return "Paper";
+            }
+            else {
+                return "Scissors";
+            } // end if ... else
+        } // end computerPlay
+        
+        // score counters
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function playRound(playerSelection, computerSelection) {
+
+            // compare the value of the player with the value of the computer
+            if (playerSelection == "Rock") {
+                if (computerSelection == "Rock") {
+                    playerScore += 0.5;
+                    computerScore += 0.5;
+                    return "Tie!";
+                }
+                else if (computerSelection == "Paper") {
+                    computerScore += 1; 
+                    return "You lose! Paper beats rock.";
+                }
+                else {
+                    playerScore += 1;
+                    return "You win! Rock beats scissors.";
+                } // end if ... else
+            }
+            else if (playerSelection == "Paper") {
+                if (computerSelection == "Rock") {
+                    playerScore += 1;
+                    return "You win! Paper beats rock";
+                }
+                else if (computerSelection == "Paper") {
+                    playerScore += 0.5;
+                    computerScore += 0.5;
+                    return "Tie!";
+                }
+                else {
+                    computerScore += 1;
+                    return "You lose! Scissors beat paper.";
+                } // end if ... else
+            }
+            else { // player chooses scissors
+                if (computerSelection == "Rock") {
+                    computerScore += 1;
+                    return "You lose! Rock beats scissors";
+                }
+                else if (computerSelection == "Paper") {
+                    playerScore += 1;
+                    return "You win! Scissors beat paper";
+                }
+                else {
+                    playerScore += 0.5;
+                    computerScore += 0.5;
+                    return "Tie!";
+                } // end if ... else
+            } // end if ... else
+        } // end playRound
+
+        // repeat the game 5 times
+        // keep track of the score
+        // in the end, announce the winner if there is one
+        function game() {
+            // loop 5 times and call the roundPlay() function
+            let i;
+            for (i = 0; i < 5; i++) {
+                // get the input from the user
+                const playerSelection = prompt("Enter a choice (rock, paper, scissors): ");
+                const computerSelection = computerPlay();
+                console.log(playRound(playerSelection, computerSelection));
+                console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
+            } // end for loop
+            // figure out the winner and keep track of score
+            if (playerScore > computerScore) {
+                console.log("The player wins!");
+            }
+            else if (playerScore < computerScore) {
+                console.log("The computer wins!");
+            }
+            else {
+                console.log("The game was a tie!");
+            } // end if ... else
+        }
+    </script>
+</html>
