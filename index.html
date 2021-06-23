@@ -1,100 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <script>
-        function computerPlay() {
-            // get a random number
-            let num = Math.floor(Math.random() * 100);
 
-            // check that number if it is divisible by 3
-            // return one of the three options 
-            if (num % 3 == 0) {
-                return "Rock";
-            } 
-            else if (num % 3 == 1) {
-                return "Paper";
-            }
-            else {
-                return "Scissors";
-            } // end if ... else
-        } // end computerPlay
-        
-        // score counters
-        let playerScore = 0;
-        let computerScore = 0;
+    <!--
+        so what i need to do is figure it out how should the website look like
+        first it should have 3 buttons, one for each option
+        it should keep count of and display the score
+        what i want it to look like is, 
+    -->
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-        function playRound(playerSelection, computerSelection) {
+    <body>
+        <header>
+            <h1>Let's play rock paper scissors!</h1>
+        </header>
 
-            // compare the value of the player with the value of the computer
-            if (playerSelection == "Rock") {
-                if (computerSelection == "Rock") {
-                    playerScore += 0.5;
-                    computerScore += 0.5;
-                    return "Tie!";
-                }
-                else if (computerSelection == "Paper") {
-                    computerScore += 1; 
-                    return "You lose! Paper beats rock.";
-                }
-                else {
-                    playerScore += 1;
-                    return "You win! Rock beats scissors.";
-                } // end if ... else
-            }
-            else if (playerSelection == "Paper") {
-                if (computerSelection == "Rock") {
-                    playerScore += 1;
-                    return "You win! Paper beats rock";
-                }
-                else if (computerSelection == "Paper") {
-                    playerScore += 0.5;
-                    computerScore += 0.5;
-                    return "Tie!";
-                }
-                else {
-                    computerScore += 1;
-                    return "You lose! Scissors beat paper.";
-                } // end if ... else
-            }
-            else { // player chooses scissors
-                if (computerSelection == "Rock") {
-                    computerScore += 1;
-                    return "You lose! Rock beats scissors";
-                }
-                else if (computerSelection == "Paper") {
-                    playerScore += 1;
-                    return "You win! Scissors beat paper";
-                }
-                else {
-                    playerScore += 0.5;
-                    computerScore += 0.5;
-                    return "Tie!";
-                } // end if ... else
-            } // end if ... else
-        } // end playRound
+        <p id="move"> 
+            Make a choice!
+        </p>
 
-        // repeat the game 5 times
-        // keep track of the score
-        // in the end, announce the winner if there is one
-        function game() {
-            // loop 5 times and call the roundPlay() function
-            let i;
-            for (i = 0; i < 5; i++) {
-                // get the input from the user
-                const playerSelection = prompt("Enter a choice (rock, paper, scissors): ");
-                const computerSelection = computerPlay();
-                console.log(playRound(playerSelection, computerSelection));
-                console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
-            } // end for loop
-            // figure out the winner and keep track of score
-            if (playerScore > computerScore) {
-                console.log("The player wins!");
-            }
-            else if (playerScore < computerScore) {
-                console.log("The computer wins!");
-            }
-            else {
-                console.log("The game was a tie!");
-            } // end if ... else
-        }
-    </script>
+
+        <div class="choices">
+            <div class="choice" id="rock">
+                <img src="images/rock.png" alt="rock">
+            </div>
+            <div class="choice" id="paper">
+                <img src="images/paper.png" alt="paper">
+            </div>
+            <div class="choice" id="scissors">
+                <img src="images/scissors.png" alt="scissors">
+            </div>
+        </div>
+
+        <p id="result">
+            // print whatever the result is
+        </p>
+
+        <div class="scoreboard">
+            <div id="player">
+                player
+            </div>
+            <div id="computer">
+                computer
+            </div>
+            <span id="player-score">0</span>:<span id="computer-score">0</span>
+        </div>
+
+        <p id="final-result">
+            The winner is...!
+        </p>
+
+    </body>
+    <footer id="nothing really">
+        <div>Created by edmond neziraj</div>
+    </footer>
+
+    <script src="script.js"></script>
 </html>
