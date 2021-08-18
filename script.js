@@ -112,16 +112,19 @@ function game(playerSelection) {
     if (playerScore == 5 || computerScore == 5) {
         // figure out the winner and keep track of score
         if (playerScore > computerScore) {
-            console.log("The player wins!");
-            finalResult_p.innerHTML = "You won!";            
+            finalResult_p.innerHTML = "You won!";
+            alert("You won! To replay press Okay")
         }
         else if (playerScore < computerScore) {
-            finalResult_p.innerHTML = "You lost!";  
+            finalResult_p.innerHTML = "You lost!"; 
+            alert("You lost! To replay press Okay")
+            
         }
-        // else {
-        //     finalResult_p.innerHTML = "Yo!";  
-        //     console.log("The game was a tie!");
-        // } // end if ... else
+        playerScore = 0;
+        computerScore =0;
+        playerScore_span.innerHTML = playerScore;
+        computerScore_span.innerHTML = computerScore;
+        finalResult_p.innerHTML = "The winner is...";
     }
 }
 
