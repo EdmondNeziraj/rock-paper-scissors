@@ -1,32 +1,28 @@
-// css
 html {
-    height: 100%;
-}
-body {
-    background-color: cadetblue;
+    height: 100vh;
+    width: 100vw;
 }
 
+body {
+    background-color: #dcdcdc;
+}
 
 header {
-    background: rgb(165, 165, 165);
+    background: rgb(26, 26, 26);
     padding: 10px;
 }
 
-header > h1 {
+header>h1 {
     text-align: center;
     font-family: Lucida Sans;
-    color:whitesmoke;
+    color: whitesmoke;
 }
 
 p {
-    color: whitesmoke;
+    color: black;
     text-align: center;
     font-size: 30px;
     font-family: Lucida Sans;
-}
-
-#move {
-    font-size: 20px;
 }
 
 .choices {
@@ -36,11 +32,12 @@ p {
 
 .choice {
     display: inline-block;
-    border: 3px solid whitesmoke;
+    border: 5px solid whitesmoke;
     border-radius: 15%;
     padding: 10px;
     margin: 0 20px;
 }
+
 .choice:hover {
     transform: scale(1.05);
     border-color: rgb(165, 165, 165);
@@ -49,46 +46,40 @@ p {
 .scoreboard {
     position: relative;
     text-align: center;
-    border: 3px solid whitesmoke;
+    border: 5px solid whitesmoke;
     margin: 20px auto;
     width: 200px;
     height: 75px;
     color: whitesmoke;
     padding: 15px;
     font-size: 55px;
+    border-radius: 16px;
 }
 
 #player {
     position: absolute;
-    background: rgb(165, 165, 165);
+    background: black;
     font-size: 20px;
     font-family: Lucida Sans;
-    top: 40px;
-    left: -30px;
+    padding: 10px;
+    top: 30px;
+    left: -40px;
+    border-radius: 8px;
 }
 
 #computer {
     position: absolute;
-    background: rgb(165, 165, 165);
+    background: black;
     font-size: 20px;
     font-family: Lucida Sans;
-    top: 40px;
-    right: -40px;
+    padding: 10px;
+    top: 30px;
+    right: -50px;
+    border-radius: 8px;
 }
 
 span {
     color: whitesmoke;
     font-size: 40px;
     font-family: Lucida Sans;
-}
-
-footer {
-    background: rgb(90, 148, 150);
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-    font-family: Lucida Sans;
-    padding: 5px;
-    font-size: 12px;
 }

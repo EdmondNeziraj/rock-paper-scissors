@@ -1,6 +1,5 @@
-//javascript
 let playerScore = 0;
-let computerScore =0;
+let computerScore = 0;
 
 
 const rock_div = document.getElementById("rock");
@@ -30,7 +29,6 @@ function computerPlay() {
 // score counters
 //let playerScore = 0;
 //let computerScore = 0;
-
 function playRound(playerSelection, computerSelection) {
 
     // compare the value of the player with the value of the computer
@@ -38,21 +36,21 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "Rock") {
             result_p.innerHTML = "Both chose rock. It's a draw!";
             rock_div.style.borderColor = "rgb(165, 165, 165)";
-            setTimeout(function() {rock_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { rock_div.style.borderColor = "whitesmoke" }, 500);
         }
         else if (computerSelection == "Paper") {
             computerScore += 1;
             computerScore_span.innerHTML = computerScore;
             result_p.innerHTML = "Paper beats rock. You lose!";
             rock_div.style.borderColor = "red";
-            setTimeout(function() {rock_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { rock_div.style.borderColor = "whitesmoke" }, 500);
         }
         else {
             playerScore += 1;
             playerScore_span.innerHTML = playerScore;
             result_p.innerHTML = "Rock beats scissors. You win!";
             rock_div.style.borderColor = "green";
-            setTimeout(function() {rock_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { rock_div.style.borderColor = "whitesmoke" }, 500);
         } // end if ... else
     }
     else if (playerSelection == "Paper") {
@@ -61,19 +59,19 @@ function playRound(playerSelection, computerSelection) {
             playerScore_span.innerHTML = playerScore;
             result_p.innerHTML = "Paper beats rock. You win!";
             paper_div.style.borderColor = "green";
-            setTimeout(function() {paper_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { paper_div.style.borderColor = "whitesmoke" }, 500);
         }
         else if (computerSelection == "Paper") {
             result_p.innerHTML = "Both chose paper. It's a draw!";
             paper_div.style.borderColor = "rgb(165, 165, 165)";
-            setTimeout(function() {paper_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { paper_div.style.borderColor = "whitesmoke" }, 500);
         }
         else {
             computerScore += 1;
             computerScore_span.innerHTML = computerScore;
             result_p.innerHTML = "Scissors beat paper. You lose!";
             paper_div.style.borderColor = "red";
-            setTimeout(function() {paper_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { paper_div.style.borderColor = "whitesmoke" }, 500);
         } // end if ... else
     }
     else { // player chooses scissors
@@ -82,19 +80,19 @@ function playRound(playerSelection, computerSelection) {
             computerScore_span.innerHTML = computerScore;
             result_p.innerHTML = "Rock beats scissors. You lose!";
             scissors_div.style.borderColor = "red";
-            setTimeout(function() {scissors_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { scissors_div.style.borderColor = "whitesmoke" }, 500);
         }
         else if (computerSelection == "Paper") {
             playerScore += 1;
             playerScore_span.innerHTML = playerScore;
             result_p.innerHTML = "Scissors beat paper. You win!";
             scissors_div.style.borderColor = "green";
-            setTimeout(function() {scissors_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { scissors_div.style.borderColor = "whitesmoke" }, 500);
         }
         else {
             result_p.innerHTML = "Both chose scissors. It's a draw!";
             scissors_div.style.borderColor = "rgb(165, 165, 165)";
-            setTimeout(function() {scissors_div.style.borderColor = "whitesmoke"}, 400);
+            setTimeout(function () { scissors_div.style.borderColor = "whitesmoke" }, 500);
         } // end if ... else
     } // end if ... else
 } // end playRound
@@ -108,35 +106,44 @@ function game(playerSelection) {
     console.log(playRound(playerSelection, computerSelection));
     console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
     console.log(`Player chose: ${playerSelection}, Computer chose: ${computerSelection}`);
-    
+
     if (playerScore == 5 || computerScore == 5) {
         // figure out the winner and keep track of score
         if (playerScore > computerScore) {
             finalResult_p.innerHTML = "You won!";
-            alert("You won! To replay press Okay")
+            // alert("You won! To replay press Okay")
+            // announce here the winner with a pop up and add button to restart the game
         }
         else if (playerScore < computerScore) {
-            finalResult_p.innerHTML = "You lost!"; 
-            alert("You lost! To replay press Okay")
-            
+            finalResult_p.innerHTML = "You lost!";
+            // alert("You lost! To replay press Okay")
+
         }
-        playerScore = 0;
-        computerScore =0;
-        playerScore_span.innerHTML = playerScore;
-        computerScore_span.innerHTML = computerScore;
-        finalResult_p.innerHTML = "The winner is...";
+        // reset();
     }
 }
 
+// announce winner at the end of the game
 
-rock_div.addEventListener('click', function() {
+
+// reset game 
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScore_span.innerHTML = playerScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = '';
+    finalResult_p.innerHTML = '';
+}
+
+rock_div.addEventListener('click', function () {
     game("Rock");
 })
 
-paper_div.addEventListener('click', function() {
+paper_div.addEventListener('click', function () {
     game("Paper");
 })
 
-scissors_div.addEventListener('click', function() {
+scissors_div.addEventListener('click', function () {
     game("Scissors");
 })

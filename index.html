@@ -1,57 +1,53 @@
 <!DOCTYPE html>
 <html>
 
-    <!--
+<!--
         so what i need to do is figure it out how should the website look like
         first it should have 3 buttons, one for each option
         it should keep count of and display the score
         what i want it to look like is, 
     -->
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
-        <header>
-            <h1>Let's play rock paper scissors!</h1>
-        </header>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <p id="move"> 
-            Make a choice!
-        </p>
+<body>
+    <header>
+        <h1>Let's play rock paper scissors!</h1>
+    </header>
 
-
-        <div class="choices">
-            <div class="choice" id="rock">
-                <img src="images/rock.png" alt="rock">
-            </div>
-            <div class="choice" id="paper">
-                <img src="images/paper.png" alt="paper">
-            </div>
-            <div class="choice" id="scissors">
-                <img src="images/scissors.png" alt="scissors">
-            </div>
+    <div class="choices">
+        <div class="choice" id="rock">
+            <img src="images/rock.png" alt="rock">
         </div>
-
-        <p id="result">
-            // print whatever the result is
-        </p>
-
-        <div class="scoreboard">
-            <div id="player">
-                player
-            </div>
-            <div id="computer">
-                computer
-            </div>
-            <span id="player-score">0</span>:<span id="computer-score">0</span>
+        <div class="choice" id="paper">
+            <img src="images/paper.png" alt="paper">
         </div>
+        <div class="choice" id="scissors">
+            <img src="images/scissors.png" alt="scissors">
+        </div>
+    </div>
 
-        <p id="final-result">
-            The winner is...!
-        </p>
+    <div class="scoreboard">
+        <div id="player">
+            player
+        </div>
+        <div id="computer">
+            computer
+        </div>
+        <span id="player-score">0</span>:<span id="computer-score">0</span>
+    </div>
+    <p id="result">
+        <!-- // print whatever the result is -->
+    </p>
 
-    </body>
+    <p id="final-result">
 
-    <script src="script.js"></script>
+    </p>
+
+</body>
+
+<script src="script.js"></script>
+
 </html>
