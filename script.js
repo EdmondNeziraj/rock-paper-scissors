@@ -1,7 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
 
-
 const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
@@ -12,7 +11,13 @@ let computerScore_span = document.getElementById("computer-score");
 const scoreboard_div = document.querySelector(".scoreboard");
 let finalResult_p = document.getElementById("final-result");
 
+const tutorial = document.querySelector('.tutorial');
+const startButton = document.querySelector('.start');
+tutorial.classList.add('active');
 
+startButton.addEventListener('click', function () {
+    tutorial.classList.remove('active');
+});
 
 function computerPlay() {
     const choices = ["Rock", "Paper", "Scissors"];
@@ -24,9 +29,6 @@ function computerPlay() {
     return choices[index];
 } // end computerPlay
 
-// score counters
-//let playerScore = 0;
-//let computerScore = 0;
 function playRound(playerSelection, computerSelection) {
 
     // compare the value of the player with the value of the computer
@@ -106,7 +108,7 @@ function game(playerSelection) {
     if (playerScore == 5 || computerScore == 5) {
         // figure out the winner and keep track of score
         if (playerScore > computerScore) {
-            announceWinner("You won! Congratulations!")
+            announceWinner("You won :) Congratulations!")
         }
         else if (playerScore < computerScore) {
             finalResult_p.innerHTML = "You lost!";
