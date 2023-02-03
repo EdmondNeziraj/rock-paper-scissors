@@ -103,6 +103,7 @@ function playRound(playerSelection, computerSelection) {
 function game(playerSelection) {
     const computerSelection = computerPlay();
 
+
     console.log(playRound(playerSelection, computerSelection));
     console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
     console.log(`Player chose: ${playerSelection}, Computer chose: ${computerSelection}`);
@@ -110,20 +111,37 @@ function game(playerSelection) {
     if (playerScore == 5 || computerScore == 5) {
         // figure out the winner and keep track of score
         if (playerScore > computerScore) {
-            finalResult_p.innerHTML = "You won!";
             // alert("You won! To replay press Okay")
             // announce here the winner with a pop up and add button to restart the game
+            announceWinner("You won! Congratulations!")
         }
         else if (playerScore < computerScore) {
             finalResult_p.innerHTML = "You lost!";
             // alert("You lost! To replay press Okay")
-
+            announceWinner("You lost :( Try again!")
         }
         // reset();
     }
 }
 
+
 // announce winner at the end of the game
+function announceWinner(text) {
+    
+
+    const popup = document.querySelector('.popup');
+    const resetButton = document.querySelector('.reset');
+    popup.classList.add('active');
+
+    finalResult_p.innerHTML = text;
+    
+    resetButton.addEventListener('click', function () {
+        popup.classList.remove('active');
+        reset();
+    });
+}
+
+
 
 
 // reset game 
